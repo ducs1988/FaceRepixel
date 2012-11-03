@@ -27,7 +27,7 @@ int process (Mat &cimg, int xstart, int ystart, int xend,
              int yend, int offset, double threshold,
              PicNodeList* picNodeList, RefillList* refillList) {
     
-    if (xend - xstart < 3 || yend - ystart < 3 || offset < 3)
+    if (xend - xstart < 4 || yend - ystart < 4 || offset < 4)
         return 0;
     
 	int x = xstart;
@@ -37,10 +37,10 @@ int process (Mat &cimg, int xstart, int ystart, int xend,
     printf("yend = %d\n", yend);
     
 	while (x < xend) {
-        printf("x = %d\n", x);
+        //printf("x = %d\n", x);
 		y = ystart;
 		while (y < yend) {
-			printf("y = %d\n", y);
+			printf("x = %d, y = %d\n", x, y);
             
 			int xp;
 			int yp;
@@ -60,6 +60,8 @@ int process (Mat &cimg, int xstart, int ystart, int xend,
             
 			if (checkVar(vars, threshold)) {
 				process (cimg, x, y, xp, yp, offset / 2, threshold, picNodeList, refillList);
+                y += offset;
+                continue;
 			}
             
 			PicNode *picNode = nullptr;

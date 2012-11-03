@@ -18,10 +18,14 @@ int main(int argc, char* argv[])
 {
     
     printf("hello world!\n");
-    preProc(&stPicNodeList, "/Users/CS/Pictures/test");
+    preProc(&stPicNodeList, "/Users/CS/Pictures/Picasa/Exports/Pics");
     printPicNodeList(&stPicNodeList);
-    repixel("/Users/CS/Pictures/RGB.bmp", &stPicNodeList, &stRefillList, 30, 50);
+    repixel("/Users/CS/Pictures/DSC03081.JPG", &stPicNodeList, &stRefillList, 100, 200);
     printRefillList(&stRefillList);
+    
+    printf("bye world!\n");
+    
+    refill("/Users/CS/Pictures/DSC03081.JPG", &stRefillList);
     
     printf("bye world!\n");
     
