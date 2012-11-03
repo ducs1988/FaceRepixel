@@ -10,7 +10,6 @@
 		40602EBA16449A9F0052BAEB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40602EB916449A9F0052BAEB /* main.cpp */; };
 		40602EBC16449A9F0052BAEB /* FaceRepixel.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40602EBB16449A9F0052BAEB /* FaceRepixel.1 */; };
 		40602EC516449B510052BAEB /* preproc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40602EC316449B510052BAEB /* preproc.cpp */; };
-		40602EC816449B880052BAEB /* repixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40602EC616449B880052BAEB /* repixel.cpp */; };
 		40602ECB16449B940052BAEB /* refill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40602EC916449B940052BAEB /* refill.cpp */; };
 		40602ECE16449BA10052BAEB /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40602ECC16449BA10052BAEB /* util.cpp */; };
 		40602EE01644A0080052BAEB /* libopencv_calib3d.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40602ECF1644A0080052BAEB /* libopencv_calib3d.2.4.2.dylib */; };
@@ -30,6 +29,7 @@
 		40602EEE1644A0080052BAEB /* libopencv_ts.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40602EDD1644A0080052BAEB /* libopencv_ts.2.4.2.dylib */; };
 		40602EEF1644A0080052BAEB /* libopencv_video.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40602EDE1644A0080052BAEB /* libopencv_video.2.4.2.dylib */; };
 		40602EF01644A0080052BAEB /* libopencv_videostab.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 40602EDF1644A0080052BAEB /* libopencv_videostab.2.4.2.dylib */; };
+		40602EF71644FE880052BAEB /* repixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40602EF61644FE880052BAEB /* repixel.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,7 +51,6 @@
 		40602EBB16449A9F0052BAEB /* FaceRepixel.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = FaceRepixel.1; sourceTree = "<group>"; };
 		40602EC216449ADB0052BAEB /* fr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fr.h; sourceTree = "<group>"; };
 		40602EC316449B510052BAEB /* preproc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = preproc.cpp; sourceTree = "<group>"; };
-		40602EC616449B880052BAEB /* repixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = repixel.cpp; sourceTree = "<group>"; };
 		40602EC916449B940052BAEB /* refill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = refill.cpp; sourceTree = "<group>"; };
 		40602ECC16449BA10052BAEB /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 		40602ECF1644A0080052BAEB /* libopencv_calib3d.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.2.dylib; path = ../../../../opt/local/lib/libopencv_calib3d.2.4.2.dylib; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		40602EDD1644A0080052BAEB /* libopencv_ts.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ts.2.4.2.dylib; path = ../../../../opt/local/lib/libopencv_ts.2.4.2.dylib; sourceTree = "<group>"; };
 		40602EDE1644A0080052BAEB /* libopencv_video.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.2.dylib; path = ../../../../opt/local/lib/libopencv_video.2.4.2.dylib; sourceTree = "<group>"; };
 		40602EDF1644A0080052BAEB /* libopencv_videostab.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.2.dylib; path = ../../../../opt/local/lib/libopencv_videostab.2.4.2.dylib; sourceTree = "<group>"; };
+		40602EF61644FE880052BAEB /* repixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = repixel.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +141,9 @@
 				40602EBB16449A9F0052BAEB /* FaceRepixel.1 */,
 				40602EC216449ADB0052BAEB /* fr.h */,
 				40602EC316449B510052BAEB /* preproc.cpp */,
-				40602EC616449B880052BAEB /* repixel.cpp */,
 				40602EC916449B940052BAEB /* refill.cpp */,
 				40602ECC16449BA10052BAEB /* util.cpp */,
+				40602EF61644FE880052BAEB /* repixel.cpp */,
 			);
 			path = FaceRepixel;
 			sourceTree = "<group>";
@@ -179,6 +179,7 @@
 			};
 			buildConfigurationList = 40602EAF16449A9F0052BAEB /* Build configuration list for PBXProject "FaceRepixel" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -200,9 +201,9 @@
 			files = (
 				40602EBA16449A9F0052BAEB /* main.cpp in Sources */,
 				40602EC516449B510052BAEB /* preproc.cpp in Sources */,
-				40602EC816449B880052BAEB /* repixel.cpp in Sources */,
 				40602ECB16449B940052BAEB /* refill.cpp in Sources */,
 				40602ECE16449BA10052BAEB /* util.cpp in Sources */,
+				40602EF71644FE880052BAEB /* repixel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +216,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -237,6 +238,7 @@
 					/opt/local/include/opencv,
 					/opt/local/include,
 				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -249,9 +251,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -265,6 +267,7 @@
 					/opt/local/include/opencv,
 					/opt/local/include,
 				);
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
 			};

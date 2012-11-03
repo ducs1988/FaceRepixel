@@ -74,4 +74,8 @@ int preProc(PicNodeList* pPicNodeList, char* path);
 
 void printPicNodeList(PicNodeList* pPicNodeList);
 
+int repixel(char *path, PicNodeList* pPicNodeList, RefillList* pRefillList, int offset, double threshold);
+
+void printRefillList(RefillList* pRefillList);
+
 #endif
