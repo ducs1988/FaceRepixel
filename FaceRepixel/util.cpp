@@ -8,11 +8,26 @@
 
 #include "fr.h"
 
-double computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend) {
-    double avg = 0.0;
+int computeAvgAndVar(char* path, Color* avg, Color* var) {
+    
+    Mat cimg = imread(path);
+    
+    int cAvg=computeAvg(cimg, 0, 0, cimg.rows, cimg.cols, avg);
+    int cVar=computeVar(cimg, 0, 0, cimg.rows, cimg.cols, avg, var);
+    
+    if (cAvg==0 && cVar==0)
+        return 0;
+    else
+        return -1;
+}
+
+int computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg) {
+    
     double sumB = 0.0;
     double sumG = 0.0;
     double sumR = 0.0;
+    
+    double numPixel = (xend-xstart+1)*(yend-ystart+1);
     
     for (int i=xstart; i<=xend; i++) {
         for (int j=ystart; j<yend; j++) {
@@ -22,14 +37,30 @@ double computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend) {
         }
     }
     
+    avg->bValue=sumB/numPixel;
+    avg->gValue=sumG/numPixel;
+    avg->rValue=sumR/numPixel;
     
-    
-    return avg;
+    return 0;
 }
 
-double computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, double avg) {
-    double var=0;
+int computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg, Color* var) {
+
+    double sumB = 0.0;
+    double sumG = 0.0;
+    double sumR = 0.0;
+
+    for (int i=xstart; i<=xend; i++) {
+        for (int j=ystart; j<yend; j++) {
+            sumB += pow(cimg.at<Vec3b>(i,j)[0]-avg->bValue,2);
+            sumG += pow(cimg.at<Vec3b>(i,j)[1]-avg->gValue,2);
+            sumR += pow(cimg.at<Vec3b>(i,j)[2]-avg->rValue,2);
+        }
+    }
     
+    var->bValue=sumB;
+    var->gValue=sumG;
+    var->rValue=sumR;
     
-    return var;
+    return 0;
 }
