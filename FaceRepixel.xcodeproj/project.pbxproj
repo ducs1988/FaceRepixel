@@ -179,7 +179,6 @@
 			};
 			buildConfigurationList = 40602EAF16449A9F0052BAEB /* Build configuration list for PBXProject "FaceRepixel" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -312,6 +311,7 @@
 				40602EC116449A9F0052BAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
