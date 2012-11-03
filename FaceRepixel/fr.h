@@ -63,7 +63,4 @@ int computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg
 // compute variance
 int computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg, Color* var);
 
-// preproc
-
-
 #endif
