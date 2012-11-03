@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 IIT. All rights reserved.
 //
 
+#include <string.h>
+
 #include "fr.h"
 
 int testdir(char *path)  
@@ -34,31 +36,35 @@ int setPicNodeList(char *path, PicNodeList* pPicNodeList)
 	memset(filename,0,128);  
 	while ((p=readdir(db)))  
 	{  
-		if((strcmp(p->d_name,".")==0)||(strcmp(p->d_name,"..")==0))  
+		if((strcmp(p->d_name,".")==0)||(strcmp(p->d_name,"..")==0)||p->d_name[0] == '.')
 			continue;  
 		else  
-		{  
-			sprintf(filename, "%s/%s", path, p->d_name);   
-			if(testdir(filename) != 0)  //a file
-			{  
+		{
+            memset(filename, 0, 128);
+			sprintf(filename, "%s/%s", path, p->d_name);
+            
+			if(testdir(filename) == 0)  //a file
+			{
 				memcpy(pPicNodeList->picNode[i].path, filename, strlen(filename));
-				if(computeAvgAndVar(filename, &(pPicNodeList->picNode[i].avg), &(pPicNodeList->picNode[i].var)) != 0){
+                printf("%s\n", filename);
+				/*if(computeAvgAndVar(filename, &(pPicNodeList->picNode[i].avg), &(pPicNodeList->picNode[i].var)) != 0){
 					printf("Error in computeAvgAndVar(), filename[%s]\n", filename);  
 					return -1;
-				}
-				
+				}*/
+                i++;				
 			}  
 		}  
-		memset(filename,0,128);  
+		 
 	}  
 	closedir(db);  
 	return 0;  
 }
 
-int getFileNum(char *path, int* num)  
+int getFileNum(char *path, int* num)
 {  
 	DIR *db;
 	char filename[128];
+    int total = 0;
 	
 	struct dirent *p;  
 	db = opendir(path);  
@@ -66,22 +72,25 @@ int getFileNum(char *path, int* num)
 	
 	memset(filename,0,128);
 	
-	&num = 0;
+	*num = 0;
 	
 	while ((p=readdir(db)))  
 	{  
-		if((strcmp(p->d_name,".")==0)||(strcmp(p->d_name,"..")==0))
+		if((strcmp(p->d_name,".")==0)||(strcmp(p->d_name,"..")==0)||p->d_name[0] == '.')
 			continue;  
 		else  
 		{  
 			sprintf(filename, "%s/%s", path, p->d_name);   
-			if(testdir(filename) != 0)  //a file
+			if(testdir(filename) == 0)  //a file
 			{  
-				&num ++;
-				printf("%s\n",filename); 
+				total ++;
+				printf("%s\n", filename);
+                //printf("%d\n", total);
 			}
 		}
-	}  
+	}
+    *num = total;
+    //printf("%d\n", *num);
 	closedir(db);  
 	return 0;  
 }  
@@ -105,7 +114,7 @@ int preProc(PicNodeList* pPicNodeList, char* path){
 	
 	pPicNodeList->numOfImgs = num;
 	
-	pPicNodeList->picNode = (PicNode *)malloc(num*sizeof(PicNode)):
+	pPicNodeList->picNode = (PicNode *)malloc(num*sizeof(PicNode));
 	
 	memset(pPicNodeList->picNode, 0, num*sizeof(PicNode));
 	
@@ -114,6 +123,15 @@ int preProc(PicNodeList* pPicNodeList, char* path){
 		free(pPicNodeList->picNode);
 		return -1;
 	}
-	
+    
     return 0;
+}
+
+void printPicNodeList(PicNodeList* pPicNodeList){
+    
+    printf("[%d]\n", pPicNodeList->numOfImgs);
+    
+    for(int i=0; i<pPicNodeList->numOfImgs; i++){
+        printf("[%d][%s]\n", i, pPicNodeList->picNode[i].path);
+    }
 }

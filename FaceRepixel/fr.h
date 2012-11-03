@@ -19,6 +19,12 @@
 #include <fstream>
 #include <iterator>
 #include <vector>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <dirent.h>
 
 using namespace cv;
 using namespace std;
@@ -62,5 +68,10 @@ int computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg
 
 // compute variance
 int computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg, Color* var);
+
+// preProc
+int preProc(PicNodeList* pPicNodeList, char* path);
+
+void printPicNodeList(PicNodeList* pPicNodeList);
 
 #endif

@@ -119,7 +119,7 @@ bool checkVar (Color *vars, double threshold) {
 
 int repixel (char *path, PicNodeList* pPicNodeList, RefillList* pRefillList, int offset, double threshold) {
     
-	Mat cimg = imread(path);
+/*	Mat cimg = imread(path);
 
 	picNodeList = pPicNodeList;
 	refillList = pRefillList;
@@ -131,7 +131,7 @@ int repixel (char *path, PicNodeList* pPicNodeList, RefillList* pRefillList, int
 	last = head;
 
 	process(cimg, 0, 0, cimg.rows, cimg.cols, offset, threshold);
-
+*/
     return 0;
 }
 
