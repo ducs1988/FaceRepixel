@@ -9,5 +9,11 @@
 #include "fr.h"
 
 int preProc(PicNodeList* pPicNodeList, char* path){
+	
+	int iResult = 0;
+	
+	//open path and test if the folder exist
+	iResult = open(path);
+	
     return 0;
 }
