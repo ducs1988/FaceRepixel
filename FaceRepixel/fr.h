@@ -23,10 +23,16 @@
 using namespace cv;
 using namespace std;
 
+typedef struct Color{
+    double  rValue;
+    double  gValue;
+    double  bValue;
+}Avg, Var;
+
 typedef struct {
     char    path[512];
-    double  avg;
-    double  variance;
+    Color	avg;
+    Color	var;
 }PicNode;
 
 typedef struct {
@@ -45,17 +51,17 @@ typedef struct ReplaceInfo{
 
 typedef struct {
     int         numOfInfo;
-    ReplaceInfo *replaceInfo;
+    ReplaceInfo *head;
 }RefillList;
 
 // compute average & var
-int computeAvgAndVar(char* path, double* avg, double* var);
+int computeAvgAndVar(char* path, Color* avg, Color* var);
 
 // compute average
-double computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend);
+int computeAvg(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg);
 
 // compute variance
-double computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, double avg);
+int computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg, Color* var);
 
 // preproc
 
