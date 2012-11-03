@@ -12,8 +12,8 @@ int computeAvgAndVar(char* path, Color* avg, Color* var) {
     
     Mat cimg = imread(path);
     
-    int cAvg=computeAvg(cimg, 0, 0, cimg.rows, cimg.cols, avg);
-    int cVar=computeVar(cimg, 0, 0, cimg.rows, cimg.cols, avg, var);
+    int cAvg=computeAvg(cimg, 0, 0, cimg.rows-1, cimg.cols-1, avg);
+    int cVar=computeVar(cimg, 0, 0, cimg.rows-1, cimg.cols-1, avg, var);
     
     if (cAvg==0 && cVar==0)
         return 0;
