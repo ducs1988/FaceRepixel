@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 IIT. All rights reserved.
 //
 
-#include <iostream>
+#include <fr.h>
 
-int main(int argc, const char * argv[])
+using namespace cv;
+using namespace std;
+
+int main(int argc, char* argv[])
 {
-
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+	    
+	return 0;
 }
-
