@@ -14,7 +14,7 @@ PicNodeList* picNodeList;
 RefillList* refillList;
 ReplaceInfo* last;
 
-int process (Mat, int, int, int, int, int, double);
+int process (Mat &, int, int, int, int, int, double);
 int findProperPic (Color*, Color*, PicNode*);
 double checkAvg (PicNode*, Color*);
 bool checkVar (Color*, double);
@@ -51,7 +51,7 @@ int process (Mat &cimg, int xstart, int ystart, int xend, int yend, int offset, 
 				process (cimg, x, y, xp, yp, offset / 2, threshold);
 			}
 
-			PicNode *picNode;
+			PicNode *picNode = nullptr;
 			if (findProperPic (avgs, vars, picNode) == -1) {
 				return -1;
 			}
@@ -80,7 +80,7 @@ int findProperPic (Color *avgs, Color *vars, PicNode *picNode) {
 	double min = MAX_VALUE;
 
 	for (i = 0; i < picNodeList->numOfImgs; i++) {
-		PicNode *pnode = picNodeList->picNode[i];
+		PicNode *pnode = &(picNodeList->picNode[i]);
 		double current = checkAvg(pnode, avgs);
 		if (current < min) {
 			min = current;
@@ -97,9 +97,9 @@ int findProperPic (Color *avgs, Color *vars, PicNode *picNode) {
 // compute the average sum of three color
 double checkAvg (PicNode *picNode, Color *avgs) {
 	double sum = 0;
-	sum += abs(picNode->avg->rValue - avgs->rValue);
-	sum += abs(picNode->avg->gValue - avgs->gValue);
-	sum += abs(picNode->avg->bValue - avgs->bValue)
+	sum += abs(picNode->avg.rValue - avgs->rValue);
+	sum += abs(picNode->avg.gValue - avgs->gValue);
+	sum += abs(picNode->avg.bValue - avgs->bValue);
 
 	return sum / 3;
 }
@@ -110,10 +110,10 @@ bool checkVar (Color *vars, double threshold) {
 	if (vars->rValue <= threshold &&
 		vars->gValue <= threshold &&
 		vars->bValue <= threshold) {
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 
 }
 

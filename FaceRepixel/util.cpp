@@ -49,7 +49,8 @@ int computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg
     double sumB = 0.0;
     double sumG = 0.0;
     double sumR = 0.0;
-
+    double numPixel = (xend-xstart+1)*(yend-ystart+1);
+    
     for (int i=xstart; i<=xend; i++) {
         for (int j=ystart; j<yend; j++) {
             sumB += pow(cimg.at<Vec3b>(i,j)[0]-avg->bValue,2);
@@ -58,9 +59,9 @@ int computeVar(Mat &cimg, int xstart, int ystart, int xend, int yend, Color* avg
         }
     }
     
-    var->bValue=sumB;
-    var->gValue=sumG;
-    var->rValue=sumR;
-    
+    var->bValue=sqrt(sumB/numPixel);
+    var->gValue=sqrt(sumG/numPixel);
+    var->rValue=sqrt(sumR/numPixel);
+        
     return 0;
 }
