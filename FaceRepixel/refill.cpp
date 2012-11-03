@@ -8,7 +8,7 @@
 
 #include "fr.h"
 
-int refill(char* path, RefillList* pRefillList){
+int refill(char* path, char* output, RefillList* pRefillList){
     Mat cImg = imread(path);
     Mat newImg = Mat(cImg.rows, cImg.cols, cImg.type());
     cImg.release();
@@ -37,7 +37,7 @@ int refill(char* path, RefillList* pRefillList){
         info = info->pNext;
     }
     
-    imwrite("repixel.png", newImg);
+    imwrite(output, newImg);
     
     return 0;
 }

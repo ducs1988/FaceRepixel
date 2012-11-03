@@ -78,6 +78,6 @@ int repixel(char *path, PicNodeList* pPicNodeList, RefillList* pRefillList, int 
 
 void printRefillList(RefillList* pRefillList);
 
-int refill(char* path, RefillList* pRefillList);
+int refill(char* path, char* output, RefillList* pRefillList);
 
 #endif
